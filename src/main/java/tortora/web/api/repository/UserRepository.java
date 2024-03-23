@@ -1,6 +1,8 @@
 package tortora.web.api.repository;
 
 import org.springframework.stereotype.Repository;
+import tortora.web.api.handler.BusinessException;
+import tortora.web.api.handler.CampoRequeridoException;
 import tortora.web.api.model.Usuario;
 
 import java.util.ArrayList;
@@ -10,6 +12,13 @@ import java.util.List;
 public class UserRepository {
 
     public void save(Usuario usuario) {
+
+        if (usuario.getLogin() == null)
+            throw new CampoRequeridoException("login");
+
+        if (usuario.getPassword() == null)
+            throw new CampoRequeridoException("password");
+
         if (usuario.getId() == null) {
             System.out.println("SAVE - Recebendo o usuário na camada repository");
         } else {
