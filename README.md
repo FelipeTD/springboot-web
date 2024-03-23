@@ -1,2 +1,2 @@
-# springboot-web
-Projeto para estudo do Spring Boot Web MVC
+# Spring Boot Web API
+Projeto para estudo do `Spring Web API`
